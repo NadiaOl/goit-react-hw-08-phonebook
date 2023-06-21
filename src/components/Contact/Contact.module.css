@@ -1,0 +1,27 @@
+.contactListConteiner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 30px;
+    margin-bottom: 8px;
+    /* gap: 10px; */
+}
+.contactsConteiner {
+    display: flex;
+
+    width: 100%;
+}
+.contactsConteiner > p {
+width: 50%;
+}
+
+.listButton {
+    padding: 0px;
+    width: 30px;
+    height: 30px;
+    border-radius: 5px;
+    border: 1px solid #E3D3D9;
+    background-color: #FFEDF4;
+    box-shadow: 0 10px 10px -5px rgba(0, 0, 0, 0.3);
+
+}

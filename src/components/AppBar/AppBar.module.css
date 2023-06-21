@@ -1,0 +1,15 @@
+.phonebook {
+    display: flex;
+    flex-direction: column;
+    width: 420px;
+    margin: 0 auto;
+}
+.phonebookTitle {
+    font-size: 36px;
+    font-style: oblique;
+    margin: 30px auto;
+}
+.phonebookSubTitle {
+    font-size: 24px;
+    font-style: oblique;
+}
