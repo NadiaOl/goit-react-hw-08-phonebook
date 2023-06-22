@@ -17,7 +17,7 @@ const handlePending = state => {
 
 const handleRejected = (state, {payload}) => {
   return {
-    // ...state,
+    ...state,
     isLoading: false,
     error: payload,
   };
@@ -25,6 +25,7 @@ const handleRejected = (state, {payload}) => {
 
 const handleFulfilled = (state) => {
   return {
+    ...state,
     isLoading: false, 
     error: null, 
   }
