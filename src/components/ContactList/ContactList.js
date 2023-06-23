@@ -1,9 +1,9 @@
 
 import { useDispatch, useSelector } from "react-redux";
 import { Contact } from "components/Contact/Contact";
-import { selectContacts, selectError, selectFilter, selectIsLoading } from "redux/selectors";
+import { selectContacts, selectError, selectFilter, selectIsLoading } from "tasks/selectors";
 import { useEffect } from "react";
-import { fetchContacts } from "redux/operations";
+import { fetchContacts } from "tasks/operations";
 import css from './ContactList.module.css';
 
 export const ContactList = () =>{ 

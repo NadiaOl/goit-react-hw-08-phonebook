@@ -1,6 +1,7 @@
 import { useState } from "react";
 // import { useDispatch } from "react-redux";
 import css from './Views.module.css';
+import { useLocation, useNavigate } from "react-router-dom";
 
 
 export const RegisterPage = () => {
@@ -8,6 +9,9 @@ export const RegisterPage = () => {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const navigate = useNavigate()
+    const locationDetails = useLocation()
+    const back = locationDetails.state ?? '/'
 
     const handleChange = ({ target: { name, value } }) => {
         switch (name) {
@@ -21,6 +25,9 @@ export const RegisterPage = () => {
                 return;
         }
     };
+    const handleBack = () => {
+        navigate(back)
+    }
 
     const handleSubmit = e => {
         e.preventDefault();
@@ -32,24 +39,27 @@ export const RegisterPage = () => {
 
     return (
         <div className={css.formContainer}>
-        <h1 className={css.formTitle}>Registration form</h1>
-        <form onSubmit={handleSubmit} className={css.form} autoComplete="off">
-            <label className={css.label}>
-                Name
-                <input className={css.input} type="text" name="name" value={name} onChange={handleChange} />
-            </label>
-            <label className={css.label}>
-                E-mail
-                <input className={css.input} type="email" name="email" value={email} onChange={handleChange}
-            />
-            </label>
-            <label className={css.label}>
-                Password
-                <input className={css.input} type="password" name="password" value={password} onChange={handleChange}
-            />
-            </label>
-            <button className={css.button} type="submit">Sign In</button>
-        </form>
+            <button className={css.linkBack} onClick={handleBack}>Go back</button>
+            <div className={css.formSection}>
+                <h1 className={css.formTitle}>Registration form</h1>
+                <form onSubmit={handleSubmit} className={css.form} autoComplete="off">
+                    <label className={css.label}>
+                        Name
+                        <input className={css.input} type="text" name="name" value={name} onChange={handleChange} />
+                    </label>
+                    <label className={css.label}>
+                        E-mail
+                        <input className={css.input} type="email" name="email" value={email} onChange={handleChange}
+                    />
+                    </label>
+                    <label className={css.label}>
+                        Password
+                        <input className={css.input} type="password" name="password" value={password} onChange={handleChange}
+                    />
+                    </label>
+                    <button className={css.button} type="submit">Sign In</button>
+                </form>
+            </div>
         </div>
     );
   }

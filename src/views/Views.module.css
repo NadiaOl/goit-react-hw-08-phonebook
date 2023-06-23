@@ -5,6 +5,7 @@
     align-items: center;
     gap: 50px;
 
+
 }
 
 .title {
@@ -17,12 +18,20 @@
 .formContainer {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    width: 410px;
+    margin: 0 auto;
 }
+
+
 .formTitle {
     font-weight: 500;
-    font-size: 48px;
+    font-size: 42px;
     color: rgb(68, 36, 110);
+}
+.formSection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .form {
@@ -59,4 +68,16 @@
     font-size: 18px;
     background-color: #FFEDF4;
     box-shadow: 0 10px 10px -5px rgba(0, 0, 0, 0.3)
+}
+.linkBack {
+    text-decoration: none;
+    width: 100px;
+    height: 30px;
+    border: 1px solid #E3D3D9;
+    border-radius: 3px;
+    background-color: #FFEDF4;
+    padding: 0 20px;
+    color: black;
+    box-shadow: 3px 0px 10px 1px rgb(0 0 0 / 30%);
+    margin-top: 50px;
 }
