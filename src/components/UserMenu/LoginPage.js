@@ -1,17 +1,18 @@
 import { useState } from "react";
-// import { useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import css from './Views.module.css';
-import { useLocation, useNavigate } from "react-router-dom";
-// import { logInUser } from "components/auth/authOperations";
+import { useLocation } from "react-router-dom";
+import { logInUser } from "tasks/authOperations";
+
 
 
 export const LoginPage = () => {
-    // const dispatch = useDispatch();
+    const dispatch = useDispatch();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const navigate = useNavigate()
+    // const navigate = useNavigate()
     const locationDetails = useLocation()
-    const back = locationDetails.state ?? '/'
+    // const back = locationDetails.state ?? '/'
 
     const handleChange = ({ target: { name, value } }) => {
         switch (name) {
@@ -23,20 +24,20 @@ export const LoginPage = () => {
             return;
         }
     };
-        const handleBack = () => {
-    navigate(back)
-    }
+    //     const handleBack = () => {
+    // navigate(back)
+    // }
 
     const handleSubmit = e => {
         e.preventDefault();
-    //   dispatch(logInUser({ email, password }));
+      dispatch(logInUser({ email, password }));
         setEmail('');
         setPassword('');
     };
 
     return (
         <div className={css.formContainer}>
-            <button className={css.linkBack} onClick={handleBack}>Go back</button>
+            {/* <button className={css.linkBack} onClick={handleBack}>Go back</button> */}
             <h1 className={css.formTitle}>Sign In</h1>
             <div className={css.formSection}>
                 <form onSubmit={handleSubmit} className={css.form} autoComplete="off">
@@ -46,6 +47,7 @@ export const LoginPage = () => {
                             type="email"
                             name="email"
                             value={email}
+                            autoComplete="on"
                             onChange={handleChange}
                         />
                     </label>

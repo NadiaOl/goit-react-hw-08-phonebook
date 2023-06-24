@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import css from './Views.module.css';
 import { useLocation, useNavigate } from "react-router-dom";
-import { registerUser } from "components/auth/authOperations";
+import { registerUser } from "tasks/authOperations";
 
 
 
@@ -41,7 +41,7 @@ export const RegisterPage = () => {
 
     return (
         <div className={css.formContainer}>
-            <button className={css.linkBack} onClick={handleBack}>Go back</button>
+            {/* <button className={css.linkBack} onClick={handleBack}>Go back</button> */}
             <div className={css.formSection}>
                 <h1 className={css.formTitle}>Registration form</h1>
                 <form onSubmit={handleSubmit} className={css.form} autoComplete="off">

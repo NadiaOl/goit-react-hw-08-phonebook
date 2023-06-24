@@ -14,7 +14,7 @@ export const ContactForm = () => {
         if (contacts.find(contact => contact.name.toLowerCase() === formName.toLowerCase())) {
             return  alert(`${formName} is already in contacts`);
         } 
-        dispatch(addContact({name: formName, phone: formNumber}));
+        dispatch(addContact({name: formName, number: formNumber}));
         event.target.reset();
     }
     return (

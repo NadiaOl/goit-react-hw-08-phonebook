@@ -1,16 +1,23 @@
-import {ContactForm} from '../ContactForm/ContactForm';
-import {ContactList} from '../ContactList/ContactList';
-import {Filter} from '../Filter/Filter'
 import css from './AppBar.module.css';
+import { Navigation } from 'components/UserMenu/Navigation';
+import { AuthNav } from 'components/UserMenu/AuthNav';
+import { UserMenu } from 'components/UserMenu/UserMenu';
+import { getIsLoggedIn } from 'tasks/selectors';
+import { useSelector } from 'react-redux';
+
 
 export const AppBar = () => {
+  const isLoggedIn = useSelector(getIsLoggedIn)
   return (
-    <div className={css.phonebook}>
-      <h2 className={css.phonebookTitle}>Phonebook</h2>
-      <ContactForm />
-      <Filter />
-      <h3 className={css.phonebookSubTitle}>Contacts</h3>
-      <ContactList />
-    </div>
+<div>
+  <header className={css.container}>
+    <Navigation/>
+{isLoggedIn ? <UserMenu/> : <AuthNav/>}
+    
+    
+  </header>
+
+
+</div>
   )
 }

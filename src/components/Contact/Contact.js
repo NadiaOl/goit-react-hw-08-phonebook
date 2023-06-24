@@ -12,7 +12,7 @@ export const Contact= ({contact}) =>{
         <div className={css.contactListConteiner}>
             <div className={css.contactsConteiner}>
                 <p className={css.userName}>{contact.name}: </p>
-                <p>{contact.phone}</p>
+                <p>{contact.number}</p>
             </div>
             <button className={css.listButton} type="button" onClick={handleDelete}> 
                 <svg width="30" height="30" fill="none" xmlns="http://www.w3.org/2000/svg">
