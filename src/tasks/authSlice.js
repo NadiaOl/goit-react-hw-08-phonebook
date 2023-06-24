@@ -9,22 +9,22 @@ const initialState = {
   token: null,
   isLoggedIn: false,
 };
-const handleFulfilled =(state, {payload}) =>{
-  console.log('state', state)
-  console.log('payload', payload)
-  return {
-    user: payload.user,
-    token: payload.token,
-    isLoggedIn: true
-  }
-}
-const handleFulfilledLogOut =(state) =>{
-  return {
-    user: { name: null, email: null },
-    token: null,
-    isLoggedIn: false
-  }
-}
+// const handleFulfilled =(state, {payload}) =>{
+//   console.log('state', state)
+//   console.log('payload', payload)
+//   return {
+//     user: payload.user,
+//     token: payload.token,
+//     isLoggedIn: true
+//   }
+// }
+// const handleFulfilledLogOut =(state) =>{
+//   return {
+//     user: { name: null, email: null },
+//     token: null,
+//     isLoggedIn: false
+//   }
+// }
 
 const authSlice = createSlice({
   name: 'auth',

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import css from './Views.module.css';
-import { useLocation, useNavigate } from "react-router-dom";
+// import { useLocation, useNavigate } from "react-router-dom";
 import { registerUser } from "tasks/authOperations";
 
 
@@ -11,9 +11,9 @@ export const RegisterPage = () => {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const navigate = useNavigate()
-    const locationDetails = useLocation()
-    const back = locationDetails.state ?? '/'
+    // const navigate = useNavigate()
+    // const locationDetails = useLocation()
+    // const back = locationDetails.state ?? '/'
 
     const handleChange = ({ target: { name, value } }) => {
         switch (name) {
@@ -27,9 +27,9 @@ export const RegisterPage = () => {
                 return;
         }
     };
-    const handleBack = () => {
-        navigate(back)
-    }
+    // const handleBack = () => {
+    //     navigate(back)
+    // }
 
     const handleSubmit = e => {
         e.preventDefault();

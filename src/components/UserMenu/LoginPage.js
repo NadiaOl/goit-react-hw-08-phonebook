@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import css from './Views.module.css';
-import { useLocation } from "react-router-dom";
+// import { useLocation } from "react-router-dom";
 import { logInUser } from "tasks/authOperations";
 
 
@@ -11,7 +11,7 @@ export const LoginPage = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     // const navigate = useNavigate()
-    const locationDetails = useLocation()
+    // const locationDetails = useLocation()
     // const back = locationDetails.state ?? '/'
 
     const handleChange = ({ target: { name, value } }) => {

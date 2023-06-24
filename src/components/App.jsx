@@ -5,7 +5,6 @@ import { LoginPage } from "./UserMenu/LoginPage";
 import { RegisterPage } from "./UserMenu/RegisterPage";
 import Container from "./Container/Container";
 import { HomePage } from "./UserMenu/HomePage";
-import { ContactList } from "./ContactList/ContactList";
 import { ContactsPage } from "./UserMenu/ContactsPage";
 
 export const App = ()=> {
