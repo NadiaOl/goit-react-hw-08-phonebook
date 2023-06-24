@@ -2,6 +2,7 @@ import { useState } from "react";
 // import { useDispatch } from "react-redux";
 import css from './Views.module.css';
 import { useLocation, useNavigate } from "react-router-dom";
+// import { logInUser } from "components/auth/authOperations";
 
 
 export const LoginPage = () => {
@@ -28,7 +29,7 @@ export const LoginPage = () => {
 
     const handleSubmit = e => {
         e.preventDefault();
-    //   dispatch(authOperations.logIn({ email, password }));
+    //   dispatch(logInUser({ email, password }));
         setEmail('');
         setPassword('');
     };

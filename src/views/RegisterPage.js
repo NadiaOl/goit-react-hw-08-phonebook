@@ -1,11 +1,13 @@
 import { useState } from "react";
-// import { useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import css from './Views.module.css';
 import { useLocation, useNavigate } from "react-router-dom";
+import { registerUser } from "components/auth/authOperations";
+
 
 
 export const RegisterPage = () => {
-    // const dispatch = useDispatch();
+    const dispatch = useDispatch();
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -31,7 +33,7 @@ export const RegisterPage = () => {
 
     const handleSubmit = e => {
         e.preventDefault();
-    //   dispatch(authOperations.register({ name, email, password }));
+        dispatch(registerUser({ name, email, password }));
         setName('');
         setEmail('');
         setPassword('');
@@ -45,11 +47,11 @@ export const RegisterPage = () => {
                 <form onSubmit={handleSubmit} className={css.form} autoComplete="off">
                     <label className={css.label}>
                         Name
-                        <input className={css.input} type="text" name="name" value={name} onChange={handleChange} />
+                        <input className={css.input} type="text" name="name" value={name} autoComplete="on" onChange={handleChange} />
                     </label>
                     <label className={css.label}>
                         E-mail
-                        <input className={css.input} type="email" name="email" value={email} onChange={handleChange}
+                        <input className={css.input} type="email" name="email" value={email} autoComplete="on" onChange={handleChange}
                     />
                     </label>
                     <label className={css.label}>
