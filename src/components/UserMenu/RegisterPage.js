@@ -1,19 +1,18 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import css from './Views.module.css';
-// import { useLocation, useNavigate } from "react-router-dom";
 import { registerUser } from "tasks/authOperations";
+import { useNavigate } from "react-router-dom";
 
 
 
 export const RegisterPage = () => {
     const dispatch = useDispatch();
+    const navigate = useNavigate()
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    // const navigate = useNavigate()
-    // const locationDetails = useLocation()
-    // const back = locationDetails.state ?? '/'
+
 
     const handleChange = ({ target: { name, value } }) => {
         switch (name) {
@@ -27,9 +26,6 @@ export const RegisterPage = () => {
                 return;
         }
     };
-    // const handleBack = () => {
-    //     navigate(back)
-    // }
 
     const handleSubmit = e => {
         e.preventDefault();
@@ -37,11 +33,11 @@ export const RegisterPage = () => {
         setName('');
         setEmail('');
         setPassword('');
+        navigate('/login');
     };
 
     return (
         <div className={css.formContainer}>
-            {/* <button className={css.linkBack} onClick={handleBack}>Go back</button> */}
             <div className={css.formSection}>
                 <h1 className={css.formTitle}>Registration form</h1>
                 <form onSubmit={handleSubmit} className={css.form} autoComplete="off">
@@ -64,4 +60,4 @@ export const RegisterPage = () => {
             </div>
         </div>
     );
-  }
+}

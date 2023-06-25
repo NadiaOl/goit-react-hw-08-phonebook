@@ -1,5 +1,6 @@
 import { AppBar } from "components/AppBar/AppBar";
 import { Route, Routes } from 'react-router-dom';
+import { Toaster } from 'react-hot-toast'
 
 import { LoginPage } from "./UserMenu/LoginPage";
 import { RegisterPage } from "./UserMenu/RegisterPage";
@@ -19,16 +20,18 @@ export const App = ()=> {
     dispatch(fetchCurrentUser());
   }, [dispatch]);
 return (
-<Container>
-  <AppBar/>
-            <Routes>
-            <Route path="/" element={<HomePage/>}/>
-            <Route path="register" element={<RegisterPage/>}/>
-            <Route path="login" element={<LoginPage/>}/>
-            <Route path="contacts" element={<ContactsPage/>}/>
-          </Routes>
-  
-</Container>
-)
+
+  <Container>
+  <Toaster/>
+    <AppBar/>
+              <Routes>
+              <Route path="/" element={<HomePage/>}/>
+              <Route path="register" element={<RegisterPage/>}/>
+              <Route path="login" element={<LoginPage/>}/>
+              <Route path="contacts" element={<ContactsPage/>}/>
+            </Routes>
+    
+  </Container>)
+
 
 }

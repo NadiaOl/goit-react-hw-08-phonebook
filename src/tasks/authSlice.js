@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { fetchCurrentUser, logInUser, logOutUsser, registerUser } from './authOperations';
+import { fetchCurrentUser, logInUser, logOutUser, registerUser } from './authOperations';
 
 
 
@@ -40,7 +40,7 @@ const authSlice = createSlice({
     builder
     .addCase(registerUser.fulfilled, handleFulfilled)
     .addCase(logInUser.fulfilled, handleFulfilled)
-    .addCase(logOutUsser.fulfilled, handleFulfilledLogOut)
+    .addCase(logOutUser.fulfilled, handleFulfilledLogOut)
     .addCase(fetchCurrentUser.fulfilled, handleFulfilledRefresh)
 
   },

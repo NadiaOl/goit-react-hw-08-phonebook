@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { toast } from 'react-toastify';
+import { toast } from 'react-hot-toast';
 
 axios.defaults.baseURL = 'https://connections-api.herokuapp.com';
 
@@ -20,7 +20,7 @@ export const registerUser = createAsyncThunk(
     try {
       const response = await axios.post('/users/signup', credentials);
       token.set(response.data.token);
-      toast.success('Welcome to phonebook!');
+      toast.success('Congratulations, you have registered! Please, enter your email and password!')
       return response.data;
     } catch (error) {
       toast.error(`${error.message}`);
@@ -33,6 +33,7 @@ export const logInUser = createAsyncThunk('auth/login', async (credentials, thun
   try {
     const response = await axios.post('/users/login', credentials);
     token.set(response.data.token);
+    toast.success('Welcome to Contact Book!')
     return response.data;
   } catch (error) {
     toast.error('Wrong password or email. Please try again!');
@@ -40,7 +41,7 @@ export const logInUser = createAsyncThunk('auth/login', async (credentials, thun
   }
 });
 
-export const logOutUsser = createAsyncThunk('auth/logout', async (_, thunkAPI) => {
+export const logOutUser = createAsyncThunk('auth/logout', async (_, thunkAPI) => {
   try {
     await axios.post('/users/logout');
     token.unset()    
