@@ -4,15 +4,13 @@ import css from './Views.module.css';
 
 export const Navigation = () => (
     <div className={css.navDiv}>
-      <NavLink to="/" exact className={css.link}>
+      <NavLink to="/" className={css.link}>
         Home
       </NavLink>
   
       <NavLink
         to="/contacts"
-        exact
-        className={css.link}
-      >
+        className={css.link}>
         Contacts
       </NavLink>
     </div>

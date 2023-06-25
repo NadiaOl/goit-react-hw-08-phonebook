@@ -1,4 +1,4 @@
-import { useState } from "react";
+import {  useState } from "react";
 import { useDispatch } from "react-redux";
 import css from './Views.module.css';
 // import { useLocation } from "react-router-dom";
@@ -6,15 +6,15 @@ import { logInUser } from "tasks/authOperations";
 
 
 
+
+
 export const LoginPage = () => {
     const dispatch = useDispatch();
+
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    // const navigate = useNavigate()
-    // const locationDetails = useLocation()
-    // const back = locationDetails.state ?? '/'
 
-    const handleChange = ({ target: { name, value } }) => {
+        const handleChange = ({ target: { name, value } }) => {
         switch (name) {
             case 'email':
                 return setEmail(value);
@@ -24,9 +24,6 @@ export const LoginPage = () => {
             return;
         }
     };
-    //     const handleBack = () => {
-    // navigate(back)
-    // }
 
     const handleSubmit = e => {
         e.preventDefault();
@@ -37,7 +34,6 @@ export const LoginPage = () => {
 
     return (
         <div className={css.formContainer}>
-            {/* <button className={css.linkBack} onClick={handleBack}>Go back</button> */}
             <h1 className={css.formTitle}>Sign In</h1>
             <div className={css.formSection}>
                 <form onSubmit={handleSubmit} className={css.form} autoComplete="off">
