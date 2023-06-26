@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { selectContacts, selectIsLoading } from "tasks/selectors";
+import { selectContacts } from "tasks/selectors";
 import { addContact } from "tasks/operations";
 import css from './ContactForm.module.css';
 import { toast } from "react-hot-toast";
@@ -7,7 +7,7 @@ import { toast } from "react-hot-toast";
 export const ContactForm = () => {
     const dispatch = useDispatch();
     const contacts = useSelector(selectContacts);
-    // const isLoading = useSelector(selectIsLoading);
+
 
     const handleSubmit = event => {
         event.preventDefault();
