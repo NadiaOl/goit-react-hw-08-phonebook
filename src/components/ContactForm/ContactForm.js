@@ -7,7 +7,7 @@ import { toast } from "react-hot-toast";
 export const ContactForm = () => {
     const dispatch = useDispatch();
     const contacts = useSelector(selectContacts);
-    const isLoading = useSelector(selectIsLoading);
+    // const isLoading = useSelector(selectIsLoading);
 
     const handleSubmit = event => {
         event.preventDefault();
@@ -36,7 +36,7 @@ export const ContactForm = () => {
                     title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
                     required />
             </label>
-            <button className={css.addButton} type="submit">{isLoading ? <p>Loading...</p> : <p>Add contact</p>}</button>
+            <button className={css.addButton} name='submit' type="submit">Add contact</button>
         </form>
     );
 }

@@ -33,13 +33,14 @@ const handleFulfilled = (state) => {
 
 const handleFetchContactsSuccess = (state, {payload}) => {
   handleFulfilled()
+
   return{
     items: payload }};
 
 const handleAddContactSuccess = (state, {payload}) => {
   handleFulfilled()
   return {
-    items: [payload, ...state.items],
+    items: [...state.items, payload],
   };
 };
 
