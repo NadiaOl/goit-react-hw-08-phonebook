@@ -1,19 +1,20 @@
 import { useDispatch, useSelector } from "react-redux";
-import { selectContacts } from "tasks/selectors";
+import { selectContacts, selectIsLoading } from "tasks/selectors";
 import { addContact } from "tasks/operations";
 import css from './ContactForm.module.css';
+import { toast } from "react-hot-toast";
 
 export const ContactForm = () => {
     const dispatch = useDispatch();
-    const contacts = useSelector(selectContacts)
+    const contacts = useSelector(selectContacts);
+    const isLoading = useSelector(selectIsLoading);
 
     const handleSubmit = event => {
         event.preventDefault();
         const formName = event.target.elements.name.value;
         const formNumber = event.target.elements.number.value;
         if (contacts.find(contact => contact.name.toLowerCase() === formName.toLowerCase())) {
-            return  alert(`${formName} is already in contacts`);
-        } 
+            return toast.error(`${formName} is already in contacts`);        } 
         dispatch(addContact({name: formName, number: formNumber}));
         event.target.reset();
     }
@@ -35,7 +36,7 @@ export const ContactForm = () => {
                     title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
                     required />
             </label>
-            <button className={css.addButton} type="submit">Add contact</button>
+            <button className={css.addButton} type="submit">{isLoading ? <p>Loading...</p> : <p>Add contact</p>}</button>
         </form>
     );
 }
