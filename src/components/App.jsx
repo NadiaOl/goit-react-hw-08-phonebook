@@ -10,6 +10,7 @@ import { ContactsPage } from "./UserMenu/ContactsPage";
 import { useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { fetchCurrentUser } from "tasks/authOperations";
+import { PrivateRoute } from "./PrivateRoute/PrivateRoute";
 
 
 export const App = ()=> {
@@ -24,12 +25,15 @@ return (
   <Container>
   <Toaster/>
     <AppBar/>
-              <Routes>
-              <Route path="/" element={<HomePage/>}/>
-              <Route path="register" element={<RegisterPage/>}/>
-              <Route path="login" element={<LoginPage/>}/>
-              <Route path="contacts" element={<ContactsPage/>}/>
-            </Routes>
+      <Routes>
+        <Route path="/" element={<HomePage/>}/>
+        <Route path="register" element={<RegisterPage/>}/>
+        <Route path="login" element={<LoginPage/>}/>
+        <Route path="contacts" element={
+          <PrivateRoute>
+            <ContactsPage />
+          </PrivateRoute>} />
+      </Routes>
     
   </Container>)
 

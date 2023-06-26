@@ -4,6 +4,7 @@ import css from './Views.module.css';
 import { logInUser } from "tasks/authOperations";
 import { useNavigate } from "react-router-dom";
 
+
 export const LoginPage = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
@@ -23,10 +24,8 @@ export const LoginPage = () => {
 
     const handleSubmit = e => {
         e.preventDefault();
-        dispatch(logInUser({ email, password }));
+        dispatch(logInUser({ email, password }))
         navigate('/');
-        setEmail('');
-        setPassword('');
     };
 
     return (
