@@ -4,7 +4,7 @@ import { toast } from 'react-hot-toast';
 
 axios.defaults.baseURL = 'https://connections-api.herokuapp.com';
 
-export const token = {
+export const userToken = {
   set(token) {
     axios.defaults.headers.common.Authorization = `Bearer ${token}`;
   },
@@ -19,10 +19,11 @@ export const registerUser = createAsyncThunk(
   async (credentials, thunkAPI) => {
     try {
       const response = await axios.post('/users/signup', credentials);
-      token.set(response.data.token);
+      userToken.set(response.data.token);
       toast.success('Congratulations, you have registered! Please, enter your email and password!')
       return response.data;
     } catch (error) {
+      console.log('error', error)
       toast.error(`${error.message}`);
       return thunkAPI.rejectWithValue(error.message);
     }
@@ -32,10 +33,11 @@ export const registerUser = createAsyncThunk(
 export const logInUser = createAsyncThunk('auth/login', async (credentials, thunkAPI) => {
   try {
     const response = await axios.post('/users/login', credentials);
-    token.set(response.data.token);
+    userToken.set(response.data.token);
     toast.success('Welcome to Contact Book!')
     return response.data;
   } catch (error) {
+    console.log('error', error)
     toast.error('Wrong password or email. Please try again!');
     return thunkAPI.rejectWithValue(error.message);
   }
@@ -44,7 +46,7 @@ export const logInUser = createAsyncThunk('auth/login', async (credentials, thun
 export const logOutUser = createAsyncThunk('auth/logout', async (_, thunkAPI) => {
   try {
     await axios.post('/users/logout');
-    token.unset()    
+    userToken.unset()    
   } catch (error) {
     toast.error(`${error.message}`);
     return thunkAPI.rejectWithValue(error.message);
@@ -59,11 +61,12 @@ export const fetchCurrentUser = createAsyncThunk('auth/refresh', async (_, thunk
   if (persistedToken === null) {
     return thunkAPI.rejectWithValue();
   }
-  token.set(persistedToken);
+  userToken.set(persistedToken);
   try {
     const { data } = await axios.get('/users/current');
     return data;
   } catch (error) {
+    toast.error(`${error.message}`);
     return thunkAPI.rejectWithValue(error.message);
   }
 });

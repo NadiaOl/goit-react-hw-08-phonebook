@@ -2,12 +2,12 @@ import {  useState } from "react";
 import { useDispatch } from "react-redux";
 import css from './Views.module.css';
 import { logInUser } from "tasks/authOperations";
-import { useNavigate } from "react-router-dom";
+
 
 
 export const LoginPage = () => {
     const dispatch = useDispatch();
-    const navigate = useNavigate();
+
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
@@ -25,7 +25,6 @@ export const LoginPage = () => {
     const handleSubmit = e => {
         e.preventDefault();
         dispatch(logInUser({ email, password }))
-        navigate('/');
     };
 
     return (

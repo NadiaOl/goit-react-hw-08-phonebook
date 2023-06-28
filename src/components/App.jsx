@@ -11,6 +11,8 @@ import { useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { fetchCurrentUser } from "tasks/authOperations";
 import { PrivateRoute } from "./PrivateRoute/PrivateRoute";
+import {PublicRoute} from './PublicRoute/PublicRoute.js'
+import { Error } from "./Error/Error";
 
 
 export const App = ()=> {
@@ -27,12 +29,23 @@ return (
     <AppBar/>
       <Routes>
         <Route path="/" element={<HomePage/>}/>
-        <Route path="register" element={<RegisterPage/>}/>
-        <Route path="login" element={<LoginPage/>}/>
+
+        <Route path="register" element={
+          <PublicRoute>
+            <RegisterPage/>
+          </PublicRoute>}
+          />
+        <Route path="login" element={
+          <PublicRoute redirectTo="contacts">
+            <LoginPage/>
+          </PublicRoute>}
+        />
         <Route path="contacts" element={
-          <PrivateRoute>
+          <PrivateRoute redirectTo="login">
             <ContactsPage />
-          </PrivateRoute>} />
+          </PrivateRoute>} 
+          />
+          <Route path="*" element={<Error/>}/>  
       </Routes>
     
   </Container>)

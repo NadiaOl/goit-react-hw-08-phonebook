@@ -10,8 +10,6 @@ const initialState = {
   isLoggedIn: false,
 };
 const handleFulfilled =(state, {payload}) =>{
-  console.log('state', state)
-  console.log('payload', payload)
   return {
     user: payload.user,
     token: payload.token,
@@ -26,8 +24,9 @@ const handleFulfilledLogOut =(state) =>{
   }
 }
 
-const handleFulfilledRefresh =(state, payload) =>{
+const handleFulfilledRefresh =(state, {payload}) =>{
   return {
+    ...state,
     user: payload,
     isLoggedIn: true
   }
