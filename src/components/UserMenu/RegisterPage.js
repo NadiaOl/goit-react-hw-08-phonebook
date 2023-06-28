@@ -4,16 +4,13 @@ import css from './Views.module.css';
 import { registerUser } from "tasks/authOperations";
 import { useNavigate } from "react-router-dom";
 
-
-
 export const RegisterPage = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate()
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-
-
+    
     const handleChange = ({ target: { name, value } }) => {
         switch (name) {
             case 'name':

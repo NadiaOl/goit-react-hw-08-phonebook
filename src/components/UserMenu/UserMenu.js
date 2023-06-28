@@ -10,13 +10,11 @@ export const UserMenu = () => {
     const name = useSelector(getUsername);
     const dispatch = useDispatch();
   
-
     const handleLogOut = () => {
       dispatch(logOutUser());
       toast.success('See you soon!');
     }
 
-  
     return (
       <div className={css.navDiv}>
           <p className={css.link}>Welcome, {name}</p>

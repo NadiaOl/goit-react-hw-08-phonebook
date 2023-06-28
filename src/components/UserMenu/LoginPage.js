@@ -3,15 +3,13 @@ import { useDispatch } from "react-redux";
 import css from './Views.module.css';
 import { logInUser } from "tasks/authOperations";
 
-
-
 export const LoginPage = () => {
     const dispatch = useDispatch();
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
-        const handleChange = ({ target: { name, value } }) => {
+    const handleChange = ({ target: { name, value } }) => {
         switch (name) {
             case 'email':
                 return setEmail(value);
@@ -56,4 +54,4 @@ export const LoginPage = () => {
             </div>
         </div>
     );
-  }
+}

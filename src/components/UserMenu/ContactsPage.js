@@ -11,15 +11,14 @@ export const ContactsPage = () => {
   const isLoading = useSelector(selectIsLoading);
 
   return (
-<Container>
+    <Container>
       <div className={css.phonebook}>
         <h2 className={css.phonebookTitle}>Phonebook</h2>
         <ContactForm />
         <Filter />
-        <h3 className={css.phonebookSubTitle}>{isLoading ? <CircleLoader  color="#b61a77"
-        size={32}/> : <p>Contacts</p>}</h3>
+        <h3 className={css.phonebookSubTitle}>{isLoading ? <CircleLoader  color="#b61a77" size={32}/> : <p>Contacts</p>}</h3>
         <ContactList />
       </div>
-</Container>
+    </Container>
   )
 }

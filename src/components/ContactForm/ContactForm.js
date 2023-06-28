@@ -8,7 +8,6 @@ export const ContactForm = () => {
     const dispatch = useDispatch();
     const contacts = useSelector(selectContacts);
 
-
     const handleSubmit = event => {
         event.preventDefault();
         const formName = event.target.elements.name.value;

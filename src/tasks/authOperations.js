@@ -13,7 +13,6 @@ export const userToken = {
   },
 };
 
-
 export const registerUser = createAsyncThunk(
   'auth/register',
   async (credentials, thunkAPI) => {
@@ -23,7 +22,6 @@ export const registerUser = createAsyncThunk(
       toast.success('Congratulations, you have registered! Please, enter your email and password!')
       return response.data;
     } catch (error) {
-      console.log('error', error)
       toast.error(`${error.message}`);
       return thunkAPI.rejectWithValue(error.message);
     }
@@ -37,7 +35,6 @@ export const logInUser = createAsyncThunk('auth/login', async (credentials, thun
     toast.success('Welcome to Contact Book!')
     return response.data;
   } catch (error) {
-    console.log('error', error)
     toast.error('Wrong password or email. Please try again!');
     return thunkAPI.rejectWithValue(error.message);
   }
